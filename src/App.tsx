@@ -1,39 +1,32 @@
-import { useState, useEffect } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
+import Stats from './components/Stats';
+import Services from './components/Services';
+import Portfolio from './components/Portfolio';
+import Process from './components/Process';
+import WhyChooseUs from './components/WhyChooseUs';
+import Team from './components/Team';
+import TechStack from './components/TechStack';
+import Testimonials from './components/Testimonials';
+import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Admin from './components/Admin';
 
 function App() {
-  const [isAdminMode, setIsAdminMode] = useState(false);
-
-  useEffect(() => {
-    const checkAdminMode = () => {
-      setIsAdminMode(window.location.hash === '#admin');
-    };
-
-    checkAdminMode();
-    window.addEventListener('hashchange', checkAdminMode);
-
-    return () => window.removeEventListener('hashchange', checkAdminMode);
-  }, []);
-
-  if (isAdminMode) {
-    return <Admin />;
-  }
-
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-[#0A0A0F] text-white overflow-x-hidden">
       <Navigation />
       <main>
         <Hero />
-        <About />
-        <Skills />
-        <Projects />
+        <Stats />
+        <Services />
+        <Portfolio />
+        <Process />
+        <WhyChooseUs />
+        <Team />
+        <TechStack />
+        <Testimonials />
+        <Blog />
         <Contact />
       </main>
       <Footer />
