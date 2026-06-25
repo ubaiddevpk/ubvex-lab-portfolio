@@ -23,15 +23,14 @@ export default function Services() {
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
-              <motion.div key={service.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.05 }} className="group glass-card-hover p-6 cursor-pointer">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center mb-4 group-hover:from-blue-600/30 group-hover:to-purple-600/30 transition-all duration-300">
-                  <service.icon className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors" />
-                </div>
-                <h3 className="font-syne text-lg font-semibold mb-2 group-hover:text-white transition-colors">{service.title}</h3>
+              <motion.div key={service.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: index * 0.08 }} whileHover={{ y: -4 }} className="service-card p-6 cursor-pointer">
+                <motion.div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center mb-4 relative" whileHover={{ scale: 1.05 }}>
+                  <motion.div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <service.icon className="w-6 h-6 text-blue-400 relative z-10" />
+                </motion.div>
+                <h3 className="font-syne text-lg font-semibold mb-2 text-white">{service.title}</h3>
                 <p className="text-sm text-gray-400 mb-4 leading-relaxed">{service.description}</p>
-                <a href="#contact" className="inline-flex items-center gap-1 text-sm text-blue-400 hover:text-blue-300 transition-colors">
-                  Learn More <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </a>
+                <a href="#contact" className="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 transition-colors group/link">Learn More<motion.span className="inline-block" whileHover={{ x: 4 }}>→</motion.span></a>
               </motion.div>
             ))}
           </div>
